@@ -17,6 +17,12 @@
       "name": "Danny",
       "active": true,
       "createdAt": "2026-08-19T12:53:18.251Z"
+    },
+    {
+      "id": "c7c5523f-c448-407c-ba57-803fb1353db7",
+      "name": "Bjorn",
+      "active": true,
+      "createdAt": "2026-08-19T12:53:22.325Z"
     }
   ],
   "games": [],
