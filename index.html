@@ -361,9 +361,42 @@ function defaultSettings(){
   return {expansions:{leaders:true,missing:false,twisted:false}, points:{1:5,2:3,3:2,4:1}, variants:{prospector:false,traveler:false}};
 }
 
+/* A one-click "setup link" lets you share owner/repo/path/branch/token as a
+   URL fragment instead of dictating each field by hand. Fragments are never
+   sent over the network (not in the request line, not in Referer headers to
+   any origin), so this is no less safe than the token living in the app's
+   own JS — but still share it privately, never post it somewhere public. */
+function parseConnectHash(){
+  const m = location.hash.match(/^#\/connect\?(.*)$/);
+  if(!m) return null;
+  const params = new URLSearchParams(m[1]);
+  const cfg = {
+    owner: params.get('owner')||'', repo: params.get('repo')||'',
+    path: params.get('path')||'data.json', branch: params.get('branch')||'main',
+    token: params.get('token')||'',
+  };
+  history.replaceState(null, '', location.pathname + location.search); // scrub it from the address bar right away
+  return cfg;
+}
+function buildSetupLink(cfg){
+  if(!cfg) return '';
+  const params = new URLSearchParams({owner:cfg.owner, repo:cfg.repo, path:cfg.path, branch:cfg.branch, token:cfg.token});
+  return location.origin + location.pathname + '#/connect?' + params.toString();
+}
+function copySetupLink(){
+  const link = buildSetupLink(ghConfig);
+  if(!link){ showAlert('Connect this browser first.'); return; }
+  const done = ()=> showAlert('Setup link copied! Share it privately (DM, not a public channel) — it carries full write access to your data repo.');
+  navigator.clipboard?.writeText(link).then(done).catch(()=>{
+    const ta=document.createElement('textarea'); ta.value=link; document.body.appendChild(ta); ta.select();
+    document.execCommand('copy'); document.body.removeChild(ta); done();
+  });
+}
+
 async function loadAll(){
   ghConfig = loadGhConfig();
-  if(!ghConfig){ renderGhSetup(); return; }
+  const hashCfg = parseConnectHash();
+  if(!ghConfig){ renderGhSetup(hashCfg || undefined); return; }
   const statusEl = document.getElementById('syncStatus');
   try{
     const { data, sha } = await ghGetFile(ghConfig);
@@ -410,6 +443,7 @@ function renderGhSetup(prefill, errorMsg){
     <h2>Connect to GitHub</h2>
     <p class="small muted">This app stores its shared data (players, games, league history) as a JSON file in a GitHub repo. Enter the repo and token you created — see the setup guide from Claude for how to create them. These details are saved only in this browser.</p>
     ${errorMsg ? `<p class="small" style="color:var(--danger);"><strong>${escapeHtml(errorMsg)}</strong></p>` : ''}
+    ${(!errorMsg && f.token) ? `<p class="small" style="color:var(--forest-dark);"><strong>Pre-filled from a setup link — review, then connect.</strong></p>` : ''}
     <div class="field"><label>Repo owner (your GitHub username or org)</label><input type="text" id="ghOwner" value="${escapeHtml(f.owner)}" placeholder="e.g. mikecoeck"></div>
     <div class="field"><label>Repository name</label><input type="text" id="ghRepo" value="${escapeHtml(f.repo)}" placeholder="e.g. arnak-tracker-data"></div>
     <div class="grid cols-2">
@@ -1828,9 +1862,11 @@ function renderSettings(){
     <h2>GitHub connection</h2>
     <p class="small">Data is stored as a JSON file in <strong>${escapeHtml(ghConfig?.owner||'')}/${escapeHtml(ghConfig?.repo||'')}</strong> (${escapeHtml(ghConfig?.path||'')}, branch ${escapeHtml(ghConfig?.branch||'')}). Every save is a git commit — you can view the full history, or revert a bad save, directly on GitHub.</p>
     <div class="btn-row">
+      <button class="btn gold" onclick="copySetupLink()">🔗 Copy one-click setup link for your group</button>
       <button class="btn outline" onclick="renderGhSetup(ghConfig)">✏️ Edit connection</button>
       <button class="btn danger" onclick="disconnectGh()">Disconnect this browser</button>
     </div>
+    <p class="small muted" style="margin-top:8px;">The setup link carries your full write-access token — share it privately with people you trust (a DM, not a public group), and treat it like a password.</p>
   </div>
   <div class="card" style="margin-top:16px;">
     <h2>Backup &amp; restore</h2>
