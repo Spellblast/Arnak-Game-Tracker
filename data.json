@@ -1,5 +1,12 @@
 {
-  "players": [],
+  "players": [
+    {
+      "id": "7f44d793-268c-48ba-9d54-35c20040c123",
+      "name": "Mike",
+      "active": true,
+      "createdAt": "2026-08-19T12:53:10.180Z"
+    }
+  ],
   "games": [],
   "settings": {
     "expansions": {
