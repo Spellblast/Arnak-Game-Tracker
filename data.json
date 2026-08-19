@@ -1,0 +1,21 @@
+{
+  "players": [],
+  "games": [],
+  "settings": {
+    "expansions": {
+      "leaders": true,
+      "missing": false,
+      "twisted": false
+    },
+    "points": {
+      "1": 5,
+      "2": 3,
+      "3": 2,
+      "4": 1
+    },
+    "variants": {
+      "prospector": false,
+      "traveler": false
+    }
+  }
+}
