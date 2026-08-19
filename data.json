@@ -29,7 +29,7 @@
   "settings": {
     "expansions": {
       "leaders": true,
-      "missing": false,
+      "missing": true,
       "twisted": false
     },
     "points": {
