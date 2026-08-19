@@ -30,7 +30,7 @@
     "expansions": {
       "leaders": true,
       "missing": true,
-      "twisted": false
+      "twisted": true
     },
     "points": {
       "1": 5,
