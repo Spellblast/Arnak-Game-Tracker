@@ -25,7 +25,65 @@
       "createdAt": "2026-08-19T12:53:22.325Z"
     }
   ],
-  "games": [],
+  "games": [
+    {
+      "id": "48fc5947-1caf-4ff4-bc61-d121f041a5c9",
+      "playedAt": "2026-09-02",
+      "status": "in_progress",
+      "mapId": "snake",
+      "researchTrackId": "tree",
+      "leaderMode": "random",
+      "notes": "",
+      "createdAt": "2026-09-02T17:00:02.667Z",
+      "players": [
+        {
+          "playerId": "7f44d793-268c-48ba-9d54-35c20040c123",
+          "order": 1,
+          "color": "green",
+          "leaderId": "captain",
+          "researchVP": 0,
+          "templeVP": 0,
+          "idolVP": 0,
+          "guardianVP": 0,
+          "cardVP": 0,
+          "fearPenalty": 0,
+          "finalScore": null,
+          "finishPos": null,
+          "leaguePoints": 0
+        },
+        {
+          "playerId": "c7c5523f-c448-407c-ba57-803fb1353db7",
+          "order": 2,
+          "color": "yellow",
+          "leaderId": "falconer",
+          "researchVP": 0,
+          "templeVP": 0,
+          "idolVP": 0,
+          "guardianVP": 0,
+          "cardVP": 0,
+          "fearPenalty": 0,
+          "finalScore": null,
+          "finishPos": null,
+          "leaguePoints": 0
+        },
+        {
+          "playerId": "b885acc8-d53f-4ca9-bf8f-b9aadb350ce1",
+          "order": 3,
+          "color": "red",
+          "leaderId": "journalist",
+          "researchVP": 0,
+          "templeVP": 0,
+          "idolVP": 0,
+          "guardianVP": 0,
+          "cardVP": 0,
+          "fearPenalty": 0,
+          "finalScore": null,
+          "finishPos": null,
+          "leaguePoints": 0
+        }
+      ]
+    }
+  ],
   "settings": {
     "expansions": {
       "leaders": true,
