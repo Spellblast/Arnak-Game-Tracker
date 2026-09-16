@@ -85,6 +85,78 @@
           "fearVP": -1
         }
       ]
+    },
+    {
+      "id": "527e62e7-ea6a-4ffd-a803-0b31520ad5d2",
+      "playedAt": "2026-09-16",
+      "status": "in_progress",
+      "mapId": "spider",
+      "researchTrackId": "spider_track",
+      "leaderMode": "random",
+      "notes": "",
+      "createdAt": "2026-09-16T20:28:09.750Z",
+      "players": [
+        {
+          "playerId": "9226bcdb-cd3d-4c41-9ffe-1684f30970d6",
+          "order": 1,
+          "color": "red",
+          "leaderId": "mystic",
+          "researchVP": 0,
+          "templeVP": 0,
+          "idolVP": 0,
+          "guardianVP": 0,
+          "cardVP": 0,
+          "fearPenalty": 0,
+          "finalScore": null,
+          "finishPos": null,
+          "leaguePoints": 0
+        },
+        {
+          "playerId": "b885acc8-d53f-4ca9-bf8f-b9aadb350ce1",
+          "order": 2,
+          "color": "green",
+          "leaderId": "mechanic",
+          "researchVP": 0,
+          "templeVP": 0,
+          "idolVP": 0,
+          "guardianVP": 0,
+          "cardVP": 0,
+          "fearPenalty": 0,
+          "finalScore": null,
+          "finishPos": null,
+          "leaguePoints": 0
+        },
+        {
+          "playerId": "7f44d793-268c-48ba-9d54-35c20040c123",
+          "order": 3,
+          "color": "yellow",
+          "leaderId": "baroness",
+          "researchVP": 0,
+          "templeVP": 0,
+          "idolVP": 0,
+          "guardianVP": 0,
+          "cardVP": 0,
+          "fearPenalty": 0,
+          "finalScore": null,
+          "finishPos": null,
+          "leaguePoints": 0
+        },
+        {
+          "playerId": "c7c5523f-c448-407c-ba57-803fb1353db7",
+          "order": 4,
+          "color": "blue",
+          "leaderId": "explorer",
+          "researchVP": 0,
+          "templeVP": 0,
+          "idolVP": 0,
+          "guardianVP": 0,
+          "cardVP": 0,
+          "fearPenalty": 0,
+          "finalScore": null,
+          "finishPos": null,
+          "leaguePoints": 0
+        }
+      ]
     }
   ],
   "settings": {
