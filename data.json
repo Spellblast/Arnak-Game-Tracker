@@ -241,7 +241,7 @@
     {
       "id": "bbe41c92-6313-47f1-8cee-d145988ba67e",
       "playedAt": "2026-09-30",
-      "status": "scheduled",
+      "status": "in_progress",
       "mapId": "snake",
       "researchTrackId": "tree",
       "leaderMode": "random",
